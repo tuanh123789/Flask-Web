@@ -1,0 +1,117 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='starter-price.css')}}">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Football DSS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="sidenav">
+              <br><br><br>
+              <a href="{{ url_for('dashboard') }}">Thống kê</a>
+              <button class="dropdown-btn">Dự đoán giá trị cầu thủ
+              <i class="fa fa-caret-down"></i>
+              </button>
+                 <div class="dropdown-container">
+                 <a href="{{ url_for('predictprice') }}">Tiền đạo</a>
+                 <a href="#">Tiền vệ</a>
+                 <a href="#">Hậu vệ</a>
+            </div>
+            <button class="dropdown-btn">Dự đoán tiền năng cầu thủ
+              <i class="fa fa-caret-down"></i>
+              </button>
+                 <div class="dropdown-container">
+                 <a href="{{ url_for('predictpotential') }}">Tiền đạo</a>
+                 <a href="#">Tiền vệ</a>
+                 <a href="#">Hậu vệ</a>
+            </div>
+           </div>
+        </div>
+         <script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="row">
+	<h2 class="co">Dự đoán giá trị cầu thủ</h2>
+  <div class="col-sm-6">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('model1')}}"method="post">
+    	<input type="text" name="age" placeholder="Tuổi" required="required" />
+      <input type="text" name="overall" placeholder="Phong độ" required="required" />
+		  <input type="text" name="potential" placeholder="Tiềm năng" required="required" />
+      <input type="text" name="pace" placeholder="Tốc độ" required="required" />
+      <input type="text" name="shooting" placeholder="Dứt điểm" required="required" />
+      <input type="text" name="physic" placeholder="Tì đè" required="required" />
+      <input type="text" name="attacking_finishing" placeholder="Sút chính xác" required="required" />
+      <input type="text" name="attacking_heading_accuracy" placeholder="Đánh đầu" required="required" />
+      <input type="text" name="movement_sprint_speed" placeholder="Tăng tốc" required="required" />
+      <input type="text" name="movement_balance" placeholder="Thăng bằng" required="required" />
+      <input type="text" name="power_shot_power" placeholder="Lực sút" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Giá trị dự đoán:</button>
+    </form>
+
+   </div>
+   <div class="col-sm-6">
+      <div>{{ div_placeholder }}</div>
+         <h1>{{ prediction_text }}</h1>
+   </div>
+
+ </div>
+</div>
+
+          
+  
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
