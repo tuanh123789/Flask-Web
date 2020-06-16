@@ -1,0 +1,36 @@
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+  }
+body{
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.btn {
+    width:170px;
+    padding:70px;
+}
+.dogbut {
+    font-size: 27px;
+    text-align: left;
+  }
+  .button4 {
+    border-color: black}
+    .big_text{
+      font-size:40px ;
+      margin: 20px 0;
+      color:black;
+      text-align: center;
+      text-align: center;
+    }
+    .small_text{
+      font-size:20px ;
+      margin: 20px 0;
+      color:black;
+    }
+    .rowstyle{
+      background-color:yellow;
+    }
+    

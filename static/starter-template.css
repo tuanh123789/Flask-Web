@@ -1,0 +1,62 @@
+body {
+    padding-top: 50px;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 1080px;
+  width: fit-content;
+
+  }
+  html { width: 100%; height:100%; overflow:auto; }
+  .starter-template {
+    padding: 40px 15px;
+    text-align: center;
+  }
+  .big_text{
+    font-size:40px ;
+    margin: 20px 0;
+    color:black;
+    text-align: center;
+    text-align: center;
+  }
+  .big_head{
+    font-size:80px ;
+    margin: 20px 0;
+    color: red;
+    font-style: initial;
+  }
+  .small_text{
+    font-size:20px ;
+    margin: 20px 0;
+    color:black;
+  }
+  .small_text1{
+    font-size:20px ;
+    margin: 20px 0;
+    color:white;
+  }
+  .rowstyle{
+    background-color:yellow;
+  }
+  .rowstyle2{
+    background-color: black;
+    width:max-content;
+  }
+  .al{
+    text-align: center;
+  }
+  .big_text{
+    font-size:40px ;
+    margin: 20px 0;
+    color:white;
+    text-align: center;
+    text-align: center;
+  }
+  ul li ul {
+    display: none; /* Hide the nested list first */
+  }
+  ul li.active ul {
+    display: block; /* Show the list when class 'active' is added to the li */ 
+    color: red;
+  }
